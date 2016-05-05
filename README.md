@@ -34,4 +34,4 @@ func NewDaemonCli() *DaemonCli {
 	}
 }
 ```
-创建DaemonCli实例并返回，其中关键内容是daemon.Config实例。
+初始化dockerd的flags，通过docker daemon --help查看各种配置选项就能理解。
