@@ -18,11 +18,11 @@ Router路由表记录docker cli发送的HTTP请求与docker daemon相应的处�
 ------
 ####1 container(r=github.com/docker/docker/api/server/router/container):
         
-        **Head request**
+        HEAD REQUEST
         request URL                                                     Hander
         /containers/{name:.*}/archive                                   r.headContainersArchive
 
-        **Get request**
+        GET REQUEST
         /containers/json                                                r.getContainersJSON
         /containers/{name:.*}/export                                    r.getContainersExport
         /containers/{name:.*}/changes                                   r.getContainersChanges
@@ -34,7 +34,7 @@ Router路由表记录docker cli发送的HTTP请求与docker daemon相应的处�
         /exec/{id:.*}/json                                              r.getExecByID
         /containers/{name:.*}/archive                                   r.getContainersArchive
 
-        **Post request**
+        POST REQUEST
         /containers/create                                              r.postContainersCreate
         /containers/{name:.*}/kill                                      r.postContainersKill
         /containers/{name:.*}/pause                                     r.postContainersPause
@@ -52,15 +52,15 @@ Router路由表记录docker cli发送的HTTP请求与docker daemon相应的处�
         /containers/{name:.*}/rename                                    r.postContainerRename
         /containers/{name:.*}/update                                    r.postContainer Update
 
-        **Put request**
+        PUT REQUEST
         /containers/{name:.*}/archive                                   r.putContainersArchive
 
-        **Delete request**
+        DELETE REQUEST
         /containers/{name:.*}                                           r.deleteContainers
 
 ####2 image(r=github.com/docker/docker/api/server/router/image):
 
-        **Get request**
+        GET REQUEST
         /images/json                                                    r.getImagesJSON
         /images/search                                                  r.getImagesSearch
         /images/get                                                     r.getImagesGet
@@ -68,14 +68,14 @@ Router路由表记录docker cli发送的HTTP请求与docker daemon相应的处�
         /images/{name:.*}/history                                       r.getImagesHistory
         /images/{name:.*}/json                                          r.getImagesByName
         
-        **Post request**
+        POST REQUEST
         /commit                                                         r.postCommit
         /images/load                                                    r.postImagesLoad
         /images/create                                                  r.postImagesCreate)
         /images/{name:.*}/push                                          r.postImagesPush)
         /images/{name:.*}/tag                                           r.postImagesTag
         
-        **DELETE request**
+        DELETE REQUEST
         /images/{name:.*}                                               r.deleteImages
 
 ####3 systemrouter(r=github.com/docker/docker/api/server/router/system):
@@ -89,12 +89,12 @@ Router路由表记录docker cli发送的HTTP请求与docker daemon相应的处�
 
 ####4 volume(r=github.com/docker/docker/api/server/router/volume):
 
-        **GET request**
+        GET REQUEST
         /volumes                                                        r.getVolumesList
         /volumes/{name:.*}                                              r.getVolumeByName
-        **POST request**
+        POST REQUEST
         /volumes/create                                                 r.postVolumesCreate
-        **DELETE request**
+        DELETE REQUEST
         /volumes/{name:.*}                                              r.deleteVolumes
 
 ####5 build(r=github.com/docker/docker/api/server/router/build):
