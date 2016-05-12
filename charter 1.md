@@ -5,13 +5,14 @@
 docker daemon的功能是创建守护进程，保障docker服务正常运行。由两部分逻辑组成：第一，创建docker运行环境并启动守护进程；第二，服务docker client，接收和处理请求。
 
 ##目录
+
 |序号|标题|
 |:-|:-|
 |第一节| daemon 配置初始化|
 |第二节| 创建daemon所需的其他服务|
 |第三节| 创建核心守护进程 |
 |第四节| 创建Middlewares |
-| 第五节| 创建Router|
+|第五节| 创建Router|
 
 ##内容
 #### [1]. daemon 配置初始化
