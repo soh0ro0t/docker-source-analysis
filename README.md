@@ -22,4 +22,3 @@ docker 基于c/s模式，首先启动dockerd的服务端，并监听特定的uni
 《Docker进阶与实战》（华为Docker实践小组 著）
 《Docker源码分析》（孙宏亮 著）
 
-<i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享
