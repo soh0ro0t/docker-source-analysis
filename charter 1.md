@@ -29,7 +29,7 @@ func NewDaemonCli() *DaemonCli {
 	}
 }
 ```
-1.2 定位main.main()，先合并docker daemon的全部配置参数，然后解析用户启动daemon时的命令行参数，若是“--help”则调用flag.Usage()后结束，或是“--version”则调用showVersion()后结束，其他则调用核心函数daemonCli.start()进入主流程。
+<i class="icon-chevron-sign-left"></i>1.2 定位main.main()，先合并docker daemon的全部配置参数，然后解析用户启动daemon时的命令行参数，若是“--help”则调用flag.Usage()后结束，或是“--version”则调用showVersion()后结束，其他则调用核心函数daemonCli.start()进入主流程。
 ```c
 	flag.Merge(flag.CommandLine, daemonCli.commonFlags.FlagSet)
 	//set flag Usage
