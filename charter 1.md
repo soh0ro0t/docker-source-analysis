@@ -3,7 +3,7 @@
 ------
 docker daemon由两部分逻辑组成：第一，创建docker运行环境并启动；第二，服务docker client，接收和处理客户端请求。具体步骤如下：
 
-#### 1. daemon 配置初始化
+####[ 1 ]  daemon 配置初始化
 这部分功能在main.init()函数中实现，作用是初始化docker daemon的参数列表，解析用户启动参数。
 
 **1.1** 首先定位main.NewDaemonCli()，功能是创建daemon支持的配置参数信息，形同“dackerd --help”所示数据。
@@ -58,7 +58,7 @@ func NewDaemonCli() *DaemonCli {
 	if !stop {
 		err = daemonCli.start()
 ```
-####2. daemonCli.start()
+####[ 2 ]  daemonCli.start()
 **2.1** 创建daemon启动时的配置信息，通过合并用户的命令行参数和配置文件的参数实现，检查配置文件中的参数是否与命令行参数有重合，如有则退出，无则将两者融合成最终的配置参数。
 
 **2.2** 创建apiserver，用于监听并接收客户端请求数据，默认情况下的监听接口是unix:///var/run/docker.sock，如果存在TCP连接则进行严格的TLS检测。
