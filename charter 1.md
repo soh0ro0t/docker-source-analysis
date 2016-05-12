@@ -6,7 +6,7 @@ docker daemon由两部分逻辑组成：第一，创建docker运行环境并启�
 #### 1. daemon 配置初始化
 这部分功能在main.init()函数中实现，作用是初始化docker daemon的参数列表，解析用户启动参数。
 
-1.1 首先定位main.NewDaemonCli()，功能是创建daemon支持的配置参数信息，形同“dackerd --help”所示数据。
+**1.1** 首先定位main.NewDaemonCli()，功能是创建daemon支持的配置参数信息，形同“dackerd --help”所示数据。
 ```c
 func NewDaemonCli() *DaemonCli {
 	// TODO(tiborvass): remove InstallFlags?
@@ -29,7 +29,7 @@ func NewDaemonCli() *DaemonCli {
 	}
 }
 ```
-1.2 定位main.main()，先合并docker daemon的全部配置参数，然后解析用户启动daemon时的命令行参数，若是“--help”则调用flag.Usage()后结束，或是“--version”则调用showVersion()后结束，其他则调用核心函数daemonCli.start()进入主流程。
+**1.2** 定位main.main()，先合并docker daemon的全部配置参数，然后解析用户启动daemon时的命令行参数，若是“--help”则调用flag.Usage()后结束，或是“--version”则调用showVersion()后结束，其他则调用核心函数daemonCli.start()进入主流程。
 ```c
 	flag.Merge(flag.CommandLine, daemonCli.commonFlags.FlagSet)
 	//set flag Usage
