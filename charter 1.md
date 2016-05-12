@@ -185,7 +185,46 @@ func NewDaemonCli() *DaemonCli {
 **3.22** 初始化网络控制器
 
 ####第四节  创建Middlewares：initMiddlewares()
+```c
+func (cli *DaemonCli) initMiddlewares(s *apiserver.Server, cfg *apiserver.Config) {
+	v := cfg.Version
 
+	vm := middleware.NewVersionMiddleware(v, api.DefaultVersion, api.MinVersion)
+	s.UseMiddleware(vm)
+
+	if cfg.EnableCors {
+		c := middleware.NewCORSMiddleware(cfg.CorsHeaders)
+		s.UseMiddleware(c)
+	}
+
+	u := middleware.NewUserAgentMiddleware(v)
+	s.UseMiddleware(u)
+
+	if len(cli.Config.AuthorizationPlugins) > 0 {
+		authZPlugins := authorization.NewPlugins(cli.Config.AuthorizationPlugins)
+		handleAuthorization := authorization.NewMiddleware(authZPlugins)
+		s.UseMiddleware(handleAuthorization)
+	}
+}
+```
 ####第五节  创建router
 
    router用于匹配事件的处理函数，并进行事件分发。那么初始化router就是创建事件与其处理函数的maps，包括container、images、volume、build、systemrouter等。由于docker是基于网络服务提供对外接口，c/s采用Http协议进行通信，下面枚举客户端请求与处理函数的记录，客户端请求的数据都会经过router处理后分发到相应的处理流程中去。
+```c
+func initRouter(s *apiserver.Server, d *daemon.Daemon) {
+	decoder := runconfig.ContainerDecoder{}
+
+	routers := []router.Router{
+		container.NewRouter(d, decoder),
+		image.NewRouter(d, decoder),
+		systemrouter.NewRouter(d),
+		volume.NewRouter(d),
+		build.NewRouter(dockerfile.NewBuildManager(d)),
+	}
+	if d.NetworkControllerEnabled() {
+		routers = append(routers, network.NewRouter(d))
+	}
+
+	s.InitRouter(utils.IsDebugEnabled(), routers...)
+}
+```
