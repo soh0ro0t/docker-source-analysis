@@ -184,7 +184,7 @@ func NewDaemonCli() *DaemonCli {
 
 **3.22** 初始化网络控制器
 
-####第四节  创建Middlewares：initMiddlewares()
+####第四节  initMiddlewares()：创建Middlewares
 ```c
 func (cli *DaemonCli) initMiddlewares(s *apiserver.Server, cfg *apiserver.Config) {
 	v := cfg.Version
@@ -207,7 +207,7 @@ func (cli *DaemonCli) initMiddlewares(s *apiserver.Server, cfg *apiserver.Config
 	}
 }
 ```
-####第五节  创建router
+####第五节  initRouter()：创建HTTP请求分发路由
 
    router用于匹配事件的处理函数，并进行事件分发。那么初始化router就是创建事件与其处理函数的maps，包括container、images、volume、build、systemrouter等。由于docker是基于网络服务提供对外接口，c/s采用Http协议进行通信，下面枚举客户端请求与处理函数的记录，客户端请求的数据都会经过router处理后分发到相应的处理流程中去。
 ```c
