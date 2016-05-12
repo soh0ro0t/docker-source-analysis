@@ -18,7 +18,10 @@ docker 基于c/s模式，首先启动dockerd的服务端，并监听特定的uni
 ##02 <i class="icon-desktop"></i> 参考
 
 《第一本Docker书》（James Turnbull 著）
+
 《Docker技术入门与实践》（杨保华 著）
+
 《Docker进阶与实战》（华为Docker实践小组 著）
+
 《Docker源码分析》（孙宏亮 著）
 
