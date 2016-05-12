@@ -1,4 +1,19 @@
-1 container(r=github.com/docker/docker/api/server/router/container):
+#Router 路由表
+------
+##00 序
+------
+Router路由表记录docker cli发送的HTTP请求与docker daemon相应的处理函数的映射关系。
+
+##01 目录
+|序号|标题|
+|:-:|:-:|
+|   1  | container|
+|   2  | image|
+|   3  | systemrouter|
+|   4  | volume|
+|   5  | build|
+
+####1 container(r=github.com/docker/docker/api/server/router/container):
         Head request
         request URL                                                     Hander
         /containers/{name:.*}/archive                                   r.headContainersArchive
@@ -39,7 +54,8 @@
         Delete request
         /containers/{name:.*}                                           r.deleteContainers
 
-2 image(r=github.com/docker/docker/api/server/router/image):
+####2 image(r=github.com/docker/docker/api/server/router/image):
+
         Get request
         /images/json                                                    r.getImagesJSON
         /images/search                                                  r.getImagesSearch
@@ -56,7 +72,8 @@
         DELETE request
         /images/{name:.*}                                               r.deleteImages
 
-3 systemrouter(r=github.com/docker/docker/api/server/router/system):
+####3 systemrouter(r=github.com/docker/docker/api/server/router/system):
+
         /{anyroute:.*}                                                  r.optionsHandler
         /_ping                                                          r.pingHandler
         /events                                                         r.getEvents
@@ -64,7 +81,8 @@
         /version                                                        r.getVersion
         /auth                                                           r.postAuth
 
-4 volume(r=github.com/docker/docker/api/server/router/volume):
+####4 volume(r=github.com/docker/docker/api/server/router/volume):
+
         GET request
         /volumes                                                        r.getVolumesList
         /volumes/{name:.*}                                              r.getVolumeByName
@@ -73,5 +91,6 @@
         DELETE request
         /volumes/{name:.*}                                              r.deleteVolumes
 
-5 build(r=github.com/docker/docker/api/server/router/build):
+####5 build(r=github.com/docker/docker/api/server/router/build):
+
         /build                                                          r.postBuild
