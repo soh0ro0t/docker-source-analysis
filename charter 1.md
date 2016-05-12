@@ -1,7 +1,7 @@
 
 #chapter 1：docker daemon启动过程
 ------
-docker daemon由两部分逻辑组成：第一，创建docker运行环境并启动；第二，服务docker client，接收和处理请求。具体步骤如下：
+docker daemon由两部分逻辑组成：第一，创建docker运行环境并启动；第二，服务docker client，接收和处理客户端请求。具体步骤如下：
 
 #### 1. daemon 配置初始化
 这部分功能在main.init()函数中实现，作用是初始化docker daemon的参数列表，解析用户启动参数。
