@@ -59,10 +59,15 @@ func NewDaemonCli() *DaemonCli {
 		err = daemonCli.start()
 ```
 ####[2] daemonCli.start()：创建daemon所需的其他服务
+
 **2.1** 创建daemon启动时的配置信息，通过合并用户的命令行参数和配置文件的参数实现，检查配置文件中的参数是否与命令行参数有重合，如有则退出，无则将两者融合成最终的配置参数。
+
 **2.2** 创建apiserver，用于监听并接收客户端请求数据，默认情况下的监听接口是unix:///var/run/docker.sock，如果存在TCP连接则进行严格的TLS检测。
+
 **2.3** 创建registryservice，用于配置注册服务器的信息，包括公有服务器和私有服务器信息。
+
 **2.4** 创建libcontainer，用于管理容器的各项具体操作事例。
+
 ```
 	cliConfig, err := loadDaemonCliConfig(cli.Config, flags, cli.commonFlags, *cli.configFile)
     ......
