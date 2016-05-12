@@ -6,6 +6,8 @@ docker 是Linux OS虚拟化容器，原生环境是Linux 64位。具有快速开
 
 docker 基于c/s模式，首先启动dockerd的服务端，并监听特定的unix socket或tcp socket，远程客户端发送请求到服务端的网络接口，然后服务端通过router实例对请求事件进行匹配和分发，再进入相应的hander处理流程，最后将执行结果回传给客户端。
 
+本文就docker启动过程，Router路由表，Docker API等方面进行详细分析。
+
 ##01 <i class="icon-list"></i> 目录
 |章节|标题|
 |:-:|:-:|
