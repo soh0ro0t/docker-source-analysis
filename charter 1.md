@@ -171,3 +171,9 @@ func NewDaemonCli() *DaemonCli {
 **3.21** 检测和配置advertise
 
 **3.22** 初始化网络控制器
+
+####[4]  创建Middlewares：initMiddlewares()
+
+####[5]  创建router
+
+   router用于匹配事件的处理函数，并进行事件分发。那么初始化router就是创建事件与其处理函数的maps，包括container、images、volume、build、systemrouter等。由于docker是基于网络服务提供对外接口，c/s采用Http协议进行通信，下面枚举客户端请求与处理函数的记录，客户端请求的数据都会经过router处理后分发到相应的处理流程中去。
