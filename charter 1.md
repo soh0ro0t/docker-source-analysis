@@ -15,7 +15,7 @@ docker daemon的功能是创建守护进程，保障docker服务正常运行。�
 |   第五节  | 创建Router|
 
 ##02 内容
-#### [1]. daemon 配置初始化
+#### 第一节、daemon 配置初始化
 这部分功能在main.init()函数中实现，作用是初始化docker daemon的参数列表，解析用户启动参数。
 
 **1.1** 首先定位main.NewDaemonCli()，功能是创建daemon支持的配置参数信息，形同“dackerd --help”所示数据。
