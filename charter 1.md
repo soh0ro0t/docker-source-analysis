@@ -30,7 +30,7 @@ func NewDaemonCli() *DaemonCli {
 }
 ```
 1.2 定位main.main()，先合并docker daemon的全部配置参数，然后解析用户启动daemon时的命令行参数，若是“--help”则调用flag.Usage()后结束，或是“--version”则调用showVersion()后结束，其他则调用核心函数daemonCli.start()进入主流程。
-```
+```c
 	flag.Merge(flag.CommandLine, daemonCli.commonFlags.FlagSet)
 	//set flag Usage
 	flag.Usage = func() {
@@ -66,7 +66,7 @@ func NewDaemonCli() *DaemonCli {
 2.3 创建registryservice，用于配置注册服务器的信息，包括公有服务器和私有服务器信息。
 
 2.4 创建libcontainer，用于管理容器的各项具体操作事例。
-```
+```c
 	cliConfig, err := loadDaemonCliConfig(cli.Config, flags, cli.commonFlags, *cli.configFile)
     ......
 	serverConfig := &apiserver.Config{
