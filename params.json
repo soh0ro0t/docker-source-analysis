@@ -1,0 +1,6 @@
+{
+  "name": "Docker-source-analysis",
+  "tagline": "docker源码分析",
+  "body": "#《docker 源码解析》\r\n-----\r\n##00  序\r\n-----\r\ndocker 是Linux OS虚拟化容器，原生环境是Linux 64位。具有快速开发、运维，以及部署的特点，它使SaaS层服务对系统和中间层的依赖性变弱，用户能够基于docker官方的基础镜像私人定制Dockerfile文件，搭建和配置特定服务，创建过程全都自动化实现。\r\n\r\ndocker 基于c/s模式，首先启动dockerd的服务端，并监听特定的unix socket或tcp socket，远程客户端发送请求到服务端的网络接口，然后服务端通过router实例对请求事件进行匹配和分发，再进入相应的hander处理流程，最后将执行结果回传给客户端。\r\n\r\n本文就docker启动过程，Router路由表，Docker API等方面进行详细分析。\r\n\r\n##01 <i class=\"icon-list\"></i> 目录\r\n|章节|标题|\r\n|:-:|:-:|\r\n|   第一章  | [docker daemon 启动过程](https://github.com/TheBeeMan/docker-source-analysize/blob/master/charter%201.md)|\r\n|   第二章  | [router mapping 路由表](https://github.com/TheBeeMan/docker-source-analysize/blob/master/chapter%202.md)|\r\n|   第三章  | Docker API 应用示例|\r\n|   第四章  | |\r\n|   第五章  | |\r\n\r\n##02 <i class=\"icon-desktop\"></i> 参考\r\n\r\n- [ ] 《第一本Docker书》（James Turnbull 著）\r\n\r\n- [ ] 《Docker技术入门与实践》（杨保华 著）\r\n\r\n- [ ] 《Docker进阶与实战》（华为Docker实践小组 著）\r\n\r\n- [ ] 《Docker源码分析》（孙宏亮 著）\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
