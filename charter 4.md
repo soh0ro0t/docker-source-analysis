@@ -72,9 +72,9 @@
 - 虚拟机运行时 [hyperhq/runv](https://github.com/hyperhq/runv)
 - OCI测试 [huawei-openlab/oct](https://github.com/huawei-openlab/oct)
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-|  tmpfs |  /proc/sched_debug |  tmpfs |
+| 设备        | 路径           | 文件系统类型  | 参数 | x | x |
+| ------------- |:-------------:| -----:|-----:|-----:|-----:|
+| col 3 is      | right-aligned | $1600 |$1600 |$1600 |$1600 |
+| col 2 is      | centered      |   $12 |$1600 |$1600 |$1600 |
+| zebra stripes | are neat      |    $1 |$1600 |$1600 |$1600 |
+|  tmpfs |  /proc/sched_debug |  tmpfs |$1600 |$1600 |$1600 |
