@@ -13,11 +13,11 @@
 
 |序号|标题|
 |:-:|:-:|
-|   第一节  | rootfs|
-|   第二节  | namespace|
-|   第三节  | cgroups|
-|   第四节  | capability|
-|   第五节  | 进程环境变量|
+|  第一节 | rootfs|
+|  第二节 | namespace|
+|  第三节 | cgroups|
+|  第四节 | capability|
+|  第五节 | 进程环境变量|
 
 ##02 内容
 ###2.1.rootfs
@@ -36,8 +36,8 @@
 ------------------------------
 |设备|路径|文件系统类型|参数|_|_| 
 |:-|:-|:-|:-|:-|:-| 
-|  /dev/disk/by-uuid/106049e0-381b-4944-972c-49ee8467863e  |  /  |  ext4  |  ro,relatime,errors=remount-ro,data=ordered  |  0  |  0  |
-|  proc  |  /proc  |  proc  |  rw,relatime  |  0  |  0  | 
+| /dev/disk/by-uuid/106049e0-381b-4944-972c-49ee8467863e | / | ext4 | ro,relatime,errors=remount-ro,data=ordered | 0 | 0 |
+| proc | /proc | proc | rw,relatime | 0 | 0 | 
 | tmpfs | /dev | tmpfs | rw,nosuid,size=65536k,mode=755 | 0 | 0 | 
 | devpts | /dev/pts | devpts | rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=666 | 0 | 0 | 
 | shm | /dev/shm | tmpfs | rw,nosuid,nodev,noexec,relatime,size=65536k | 0 | 0 | 
