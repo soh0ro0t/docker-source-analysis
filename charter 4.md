@@ -73,8 +73,34 @@
 - OCI测试 [huawei-openlab/oct](https://github.com/huawei-openlab/oct)
 
 | 设备        | 路径           | 文件系统类型  | 参数 | x | x |
-| ------------- |:-------------|:-----|:-----|:-----|:-----|
-| col 3 is      | right-aligned | $1600 |$1600 |$1600 |$1600 |
-| col 2 is      | centered      |   $12 |$1600 |$1600 |$1600 |
-| zebra stripes | are neat      |    $1 |$1600 |$1600 |$1600 |
-|  tmpfs |  /proc/sched_debug |  tmpfs |$1600 |$1600 |$1600 |
+|:------------- |:-------------|:-----|:-----|:-----|:-----|
+|  /dev/disk/by-uuid/106049e0-381b-4944-972c-49ee8467863e |  / |  ext4 |  ro,relatime,errors=remount-ro,data=ordered |  0 |  0 |
+|  proc |  /proc |  proc |  rw,relatime |  0 |  0 |  
+|  tmpfs |  /dev |  tmpfs |  rw,nosuid,size=65536k,mode=755 |  0 |  0 |  
+|  devpts |  /dev/pts |  devpts |  rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=666 |  0 |  0 |  
+|  shm |  /dev/shm |  tmpfs |  rw,nosuid,nodev,noexec,relatime,size=65536k |  0 |  0 |  
+|  mqueue |  /dev/mqueue |  mqueue |  rw,nosuid,nodev,noexec,relatime |  0 |  0 |  
+|  sysfs |  /sys |  sysfs |  ro,nosuid,nodev,noexec,relatime |  0 |  0 |  
+|  tmpfs |  /sys/fs/cgroup |  tmpfs |  ro,nosuid,nodev,noexec,relatime,mode=755 |  0 |  0 |  
+|  systemd |  /sys/fs/cgroup/systemd |  cgroup |  ro,nosuid,nodev,noexec,relatime,name=systemd |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/cpuset |  cgroup |  ro,nosuid,nodev,noexec,relatime,cpuset |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/cpu |  cgroup |  ro,nosuid,nodev,noexec,relatime,cpu |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/cpuacct |  cgroup |  ro,nosuid,nodev,noexec,relatime,cpuacct |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/blkio |  cgroup |  ro,nosuid,nodev,noexec,relatime,blkio |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/memory |  cgroup |  ro,nosuid,nodev,noexec,relatime,memory |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/devices |  cgroup |  ro,nosuid,nodev,noexec,relatime,devices |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/freezer |  cgroup |  ro,nosuid,nodev,noexec,relatime,freezer |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/net_cls |  cgroup |  ro,nosuid,nodev,noexec,relatime,net_cls |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/perf_event |  cgroup |  ro,nosuid,nodev,noexec,relatime,perf_event |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/net_prio |  cgroup |  ro,nosuid,nodev,noexec,relatime,net_prio |  0 |  0 |  
+|  cgroup |  /sys/fs/cgroup/hugetlb |  cgroup |  ro,nosuid,nodev,noexec,relatime,hugetlb |  0 |  0 |  
+|  devpts |  /dev/console |  devpts |  rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000 |  0 |  0 |  
+|  proc |  /proc/asound |  proc |  ro,nosuid,nodev,noexec,relatime |  0 |  0 |  
+|  proc |  /proc/bus |  proc |  ro,nosuid,nodev,noexec,relatime |  0 |  0 |  
+|  proc |  /proc/fs |  proc |  ro,nosuid,nodev,noexec,relatime |  0 |  0 |  
+|  proc |  /proc/irq |  proc |  ro,nosuid,nodev,noexec,relatime |  0 |  0 |  
+|  proc |  /proc/sys |  proc |  ro,nosuid,nodev,noexec,relatime |  0 |  0 |  
+|  proc |  /proc/sysrq-trigger |  proc |  ro,nosuid,nodev,noexec,relatime |  0 |  0 |  
+|  tmpfs |  /proc/kcore |  tmpfs |  rw,nosuid,size=65536k,mode=755 |  0 |  0 |  
+|  tmpfs |  /proc/timer_stats |  tmpfs |  rw,nosuid,size=65536k,mode=755 |  0 |  0 |  
+|  tmpfs |  /proc/sched_debug |  tmpfs |  rw,nosuid,size=65536k,mode=755 |  0 |  0 |  
