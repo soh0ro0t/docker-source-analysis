@@ -27,14 +27,47 @@
 **2.1.1 执行流程:**  
   
 1. 下载镜像，导出，解压生成OCI-rootfs文件目录
-1.   mount --bind xx/OCI-rootfs xx/OCI-rootfs 
-1.   mount proc dev等等分区到OCI-rootfs下面
-1.   pivot_root OCI-rootfs old-root
+1. mount --bind xx/OCI-rootfs xx/OCI-rootfs 
+1. mount proc dev等分区到OCI-rootfs下面
+1. 创建/dev 目录下的字符设备
+1. 创建/proc/self/fd/* 目录下的链接文件
+1. pivot_root OCI-rootfs old-root
 
-**2.1.2 挂载信息：**
+**2.1.2 挂载rootfs及其他分区：**
+
+- mount --bind xx/rootfs xx/rootfs
+- mount -t proc proc xx/rootfs/proc
+- mount -t tmpfs tmpfs xx/rootfs/dev
+- ...... 
+
+**2.1.3 创建/dev 目录下的字符设备：**
 
 ------------------------------
-| 设备        | 路径           | 文件系统类型  | 参数 | x | x |
+| 设备文件        | 权限           | 属组  |
+|:------------- |:-------------|:-----|
+|  /dev/null  |  rw  |  root  |
+|  /dev/zero  |  rw  |  root  |
+|  /dev/tty  |  rw  |  root  |
+|  /dev/random  |  rw  |  root  |
+|  /dev/urandom  |  rw  |  root  |
+|  /dev/fuse  |  rw  |  root  |
+
+**2.1.4 创建/proc/self/fd 目录下的符号链接：**
+
+------------------------------
+| 源路径        | 目的路径           |
+|:------------- |:-------------|
+|  /proc/self/fd  |  /dev/fd  |
+|  /proc/self/fd/0   |  /dev/stdin  |
+|  /proc/self/fd/1  |  /dev/stdout  |
+|  /proc/self/fd/2  |  /dev/stderr  |
+
+
+
+**2.1.5 挂载信息：**
+
+------------------------------
+| 设备        | 挂载点           | 文件系统类型  | 参数 | x | x |
 |:------------- |:-------------|:-----|:-----|:-----|:-----|
 |  /dev/disk/by-uuid/106049e0-381b-4944-972c-49ee8467863e |  / |  ext4 |  ro,relatime,errors=remount-ro,data=ordered |  0 |  0 |
 |  proc |  /proc |  proc |  rw,relatime |  0 |  0 |  
