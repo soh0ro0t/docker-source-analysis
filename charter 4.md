@@ -33,7 +33,7 @@
 1. 创建/proc/self/fd/* 目录下的链接文件
 1. pivot_root OCI-rootfs old-root
 
-**2.1.2 挂载rootfs及其他分区：**
+**2.1.2 挂载rootfs及所需文件系统：**
 
 - mount --bind xx/rootfs xx/rootfs
 - mount -t proc proc xx/rootfs/proc
@@ -64,7 +64,7 @@
 
 
 
-**2.1.5 挂载信息：**
+**2.1.5 挂载后的全部节点：**
 
 ------------------------------
 | 设备        | 挂载点           | 文件系统类型  | 参数 | x | x |
