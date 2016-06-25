@@ -121,7 +121,7 @@ Linux Namespace 有如下种类，官方文档在这里《Namespace in Operation
 |  UTS | 	CLONE_NEWUTS	| Linux 2.6.19|
 |  IPC | CLONE_NEWIPC	| Linux 2.6.19|
 |  PID | CLONE_NEWPID	| Linux 2.6.24|
-|  Network  CLONE_NEWNET	|始于Linux 2.6.24 完成于 Linux 2.6.29|
+|  Network |  CLONE_NEWNET	|始于Linux 2.6.24 完成于 Linux 2.6.29|
 |  User	|CLONE_NEWUSER	|始于 |Linux 2.6.23 完成于 Linux 3.8)|
 
 
