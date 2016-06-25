@@ -40,32 +40,7 @@
 - mount -t tmpfs tmpfs xx/rootfs/dev
 - ...... 
 
-**2.1.3 创建/dev 目录下的字符设备：**
-
-------------------------------
-| 设备文件        | 权限           | 属组  |
-|:------------- |:-------------|:-----|
-|  /dev/null  |  rw  |  root  |
-|  /dev/zero  |  rw  |  root  |
-|  /dev/tty  |  rw  |  root  |
-|  /dev/random  |  rw  |  root  |
-|  /dev/urandom  |  rw  |  root  |
-|  /dev/fuse  |  rw  |  root  |
-
-**2.1.4 创建/proc/self/fd 目录下的符号链接：**
-
-------------------------------
-| 源路径        | 目的路径           |
-|:------------- |:-------------|
-|  /proc/self/fd  |  /dev/fd  |
-|  /proc/self/fd/0   |  /dev/stdin  |
-|  /proc/self/fd/1  |  /dev/stdout  |
-|  /proc/self/fd/2  |  /dev/stderr  |
-
-
-
-**2.1.5 挂载后的全部节点：**
-
+下表是挂载完成后的全部节点：
 ------------------------------
 | 设备        | 挂载点           | 文件系统类型  | 参数 | x | x |
 |:------------- |:-------------|:-----|:-----|:-----|:-----|
@@ -99,6 +74,37 @@
 |  tmpfs |  /proc/kcore |  tmpfs |  rw,nosuid,size=65536k,mode=755 |  0 |  0 |  
 |  tmpfs |  /proc/timer_stats |  tmpfs |  rw,nosuid,size=65536k,mode=755 |  0 |  0 |  
 |  tmpfs |  /proc/sched_debug |  tmpfs |  rw,nosuid,size=65536k,mode=755 |  0 |  0 |  
+
+**2.1.3 创建/dev 目录下的字符设备：**
+
+------------------------------
+| 设备文件        | 权限           | 属组  |
+|:------------- |:-------------|:-----|
+|  /dev/null  |  rw  |  root  |
+|  /dev/zero  |  rw  |  root  |
+|  /dev/tty  |  rw  |  root  |
+|  /dev/random  |  rw  |  root  |
+|  /dev/urandom  |  rw  |  root  |
+|  /dev/fuse  |  rw  |  root  |
+
+**2.1.4 创建/proc/self/fd 目录下的符号链接：**
+
+------------------------------
+| 源路径        | 目的路径           |
+|:------------- |:-------------|
+|  /proc/self/fd  |  /dev/fd  |
+|  /proc/self/fd/0   |  /dev/stdin  |
+|  /proc/self/fd/1  |  /dev/stdout  |
+|  /proc/self/fd/2  |  /dev/stderr  |
+
+
+
+**2.1.5 更改根文件系统：**
+
+- mkdir old-root
+
+- pivot_root OCI-rootfs old-root
+
 
 ##03 参考
 - 容器运行时 	[opencontainers/runc](https://github.com/opencontainers/runc)
