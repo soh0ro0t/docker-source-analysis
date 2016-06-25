@@ -117,12 +117,12 @@ Linux Namespace 有如下种类，官方文档在这里《Namespace in Operation
 ------------------------------
 | 分类        | 系统调用参数           | 相关内核版本  |
 |:------------- |:-------------|:-----|		
-|  Mount | namespaces	| CLONE_NEWNS	| Linux 2.4.19|
-|  UTS | namespaces	| CLONE_NEWUTS	| Linux 2.6.19|
-|  IPC | namespaces	| CLONE_NEWIPC	| Linux 2.6.19|
-|  PID | namespaces	| CLONE_NEWPID	| Linux 2.6.24|
-|  Network | namespaces	| CLONE_NEWNET	|始于Linux 2.6.24 完成于 Linux 2.6.29|
-|  User |namespaces	|CLONE_NEWUSER	|始于 |Linux 2.6.23 完成于 Linux 3.8)|
+|  Mount |  CLONE_NEWNS	| Linux 2.4.19|
+|  UTS | 	CLONE_NEWUTS	| Linux 2.6.19|
+|  IPC | CLONE_NEWIPC	| Linux 2.6.19|
+|  PID | CLONE_NEWPID	| Linux 2.6.24|
+|  Network  CLONE_NEWNET	|始于Linux 2.6.24 完成于 Linux 2.6.29|
+|  User	|CLONE_NEWUSER	|始于 |Linux 2.6.23 完成于 Linux 3.8)|
 
 
 ##03 参考
