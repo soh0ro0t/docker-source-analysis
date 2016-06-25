@@ -20,9 +20,9 @@
 |   第五节 |  进程环境变量|
 
 ##02 内容
-###2.1.rootfs
+###2.1 rootfs
 
-创建“隔离”的系统环境，首先应该构造OCI-rootfs，生成全新的根文件系统。
+创建“隔离”的系统环境，首先应该构造OCI-rootfs，生成全新的根文件系统，里面包含基本的可执行文件和库文件等。
 
 **2.1.1 执行流程:**  
   
@@ -105,6 +105,24 @@
 - mkdir old-root
 
 - pivot_root OCI-rootfs old-root
+
+
+###2.2 namespace
+
+Linux Namespace是Linux提供的一种**内核级别 系统环境 隔离**的方法。chroot()（通过修改根目录把用户jail到一个特定目录下），chroot提供了一种简单的隔离模式：chroot内部的文件系统无法访问外部的内容。Linux Namespace在此基础上，提供了对UTS、IPC、mount、PID、network、User等的隔离机制,目的是将容器中的进程放置于一个独立的系统环境中，与容器外的一切均隔离。
+
+Linux Namespace 有如下种类，官方文档在这里《Namespace in Operation》
+
+
+------------------------------
+| 分类        | 系统调用参数           | 相关内核版本  |
+|:------------- |:-------------|:-----|		
+|  Mount | namespaces	| CLONE_NEWNS	| Linux 2.4.19|
+|  UTS | namespaces	| CLONE_NEWUTS	| Linux 2.6.19|
+|  IPC | namespaces	| CLONE_NEWIPC	| Linux 2.6.19|
+|  PID | namespaces	| CLONE_NEWPID	| Linux 2.6.24|
+|  Network | namespaces	| CLONE_NEWNET	|始于Linux 2.6.24 完成于 Linux 2.6.29|
+|  User |namespaces	|CLONE_NEWUSER	|始于 |Linux 2.6.23 完成于 Linux 3.8)|
 
 
 ##03 参考
