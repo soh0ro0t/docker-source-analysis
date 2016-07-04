@@ -21,7 +21,7 @@ int childFunc(void* arg)
 
 	sethostname("thebeeman-host",14);	
 
-  system("mount -t proc proc /proc");
+  	system("mount -t proc proc /proc");
   
 	execv(argv[0], argv);	
 
