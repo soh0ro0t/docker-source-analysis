@@ -84,5 +84,6 @@ dispatcher模块的server接收后的处理步骤是先调用authorize()验证�
 		}
 		return p.local.Session(r, stream)
 	}
+	
 验证发送请求的客户端证书是否为"swarm-worker" or "swarm-manager"实现身份认证。
 
