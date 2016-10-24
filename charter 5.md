@@ -59,6 +59,7 @@ manager包含的subserver：ControlServer，ResourceAllocatorServer，Dispatcher
 
 ###1.2 实例论证
 例如，dispatcher模块的client发送session()请求到server，请求为：
+
 	go func() {
 		client := api.NewDispatcherClient(s.conn)
 
