@@ -135,6 +135,7 @@ manager中部分subserver的定义与之相关，说明这些server只是将raft
 它由authorize()和RaftServer组成，显然，前者实现身份认证，后者是消息处理接口。由于ProcessRaftMessage和ResolveAddress只有manager才会调用，所以调用p.authorize(ctx, []string{"swarm-manager"})判断发起申请的node的证书OU域是否为“swarm-manager”。如果worker调用该接口则无法通过认证，更进入不了后续处理流程。其中ProcessRaftMessage最终进入消息处理函数etcd/raft.(*raft).Step()。ResolveAddress则最终调用manager/state/raft/membership.(*Cluster).GetMember获取raftID对应的Addr。
 
 其次，查看AuthenticatedWrapperRaftMembershipServer结构，相关代码如下：
+
 	type authenticatedWrapperRaftMembershipServer struct {
 		local     RaftMembershipServer
 		authorize func(context.Context, []string) error
@@ -163,6 +164,7 @@ manager中部分subserver的定义与之相关，说明这些server只是将raft
 		return p.local.Leave(ctx, r)
 	}
 同理，先认证发起请求的节点身份是否为“swarm-manager”，然后调用Join()或者Leave()，只需研究下Join()，Leave()执行流程相似：
+
 	func (n *Node) Join(ctx context.Context, req *api.JoinRequest) (*api.JoinResponse, error) {
 		// 检查远端的证书摘要，是否可以使用CA证书绕过验证？没有检查Role
 		nodeInfo, err := ca.RemoteNode(ctx)
