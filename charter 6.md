@@ -233,4 +233,4 @@ manager中部分subserver的定义与之相关，说明这些server只是将raft
 
 当然这只是raft部分功能应用，更多的引用在manager/state/raft/raft.go中直接搜索“n.raftNode.”，例如 n.raftNode.Campaign()、n.raftNode.Stop、n.raftNode.Step()等处理函数。
 
-## 03 选举、提交、复制（后续f跟进）
+## 03 选举、提交、复制（后续跟进）
