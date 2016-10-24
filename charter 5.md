@@ -1,4 +1,4 @@
-
+#chapter 5：docker swarm mode身份认证
 ------
 ##00 序
 **docker swarm mode** 是docker1.12版本中集成的docker swamkit的项目，是docker容器集群编排工具，能创建docker原生集群，实现节点添加、移除、更新，以及任务创建、分发、伸缩扩展、移除等功能，但是由于swarm默认采用了golang tls协议认证，所以安全性很高，同时swarm manager为每个subserver都配置了认证函数，所以想绕过认证实施攻击很困难，本篇主要讲讲身份认证的具体实现：
