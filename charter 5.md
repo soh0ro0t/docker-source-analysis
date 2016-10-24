@@ -6,7 +6,7 @@
 ##01 内容
 ###1.1 manager
 manager包含的subserver：ControlServer，ResourceAllocatorServer，DispatcherServer，CAServer，NodeCAServer，RaftServer，HealthServer，RaftMembershipServer等等。
-它还为这些subserver设置了身份认证，通过调用ca.AuthorizeForwardedRoleAndOrg()对应的client的身份，方法就是获取client的tls 证书，判断证书OU域是否为“swarm-manager” or “swarm-worker”？
+它还为这些subserver设置了身份认证，通过调用ca.AuthorizeForwardedRoleAndOrg()验证client的身份，方法就是获取client的tls 证书，判断证书OU域是否为“swarm-manager” or “swarm-worker”？
 
 **1.1.1 subserver注册:**  
   
