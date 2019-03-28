@@ -1,12 +1,12 @@
 
-#chapter 6：raft协议在docker swarm mode中的应用
+# chapter 6：raft协议在docker swarm mode中的应用
 ------
-##00 序
+## 00 序
 **raft**：我们先了解Consensus一致性这个概念，它是指多个服务器在状态达成一致，由于在分布式系统中，因为各种意外可能，有的服务器可能会崩溃或变得不可靠，它就不能和其他服务器达成一致状态。这样就需要一种Consensus协议，一致性协议是为了确保容错性，也就是即使系统中有一两个服务器宕机，也不会影响集群的处理过程。
 
 **演示视频**：[raft](http://thesecretlivesofdata.com/raft)
 
-##01 创建raft
+## 01 创建raft
 
 	raftNode := raft.NewNode(newNodeOpts)
 
@@ -88,7 +88,7 @@ tableSecret、tableNetwork、tableNode、tableCluster、tableService、tableTask
 		proposer state.Proposer
 	}
 
-##01 绑定raft
+## 02 绑定raft
 
 manager中部分subserver的定义与之相关，说明这些server只是将raftnode和MemoryStore外包，真正的数据和处理流程仍在raftnode。
 
