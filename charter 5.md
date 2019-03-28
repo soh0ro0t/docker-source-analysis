@@ -1,10 +1,10 @@
-#chapter 5：docker swarm mode身份认证
+# chapter 5：docker swarm mode身份认证
 ------
-##00 序
+## 00 序
 **docker swarm mode** 是docker1.12版本中集成的docker swamkit的项目，是docker容器集群编排工具，能创建docker原生集群，实现节点添加、移除、更新，以及任务创建、分发、伸缩扩展、移除等功能，但是由于swarm默认采用了golang tls协议认证，所以安全性很高，同时swarm manager为每个subserver都配置了认证函数，所以想绕过认证实施攻击很困难，本篇主要讲讲身份认证的具体实现：
 
-##01 内容
-###1.1 manager
+## 01 内容
+### 1.1 manager
 manager包含的subserver：ControlServer，ResourceAllocatorServer，DispatcherServer，CAServer，NodeCAServer，RaftServer，HealthServer，RaftMembershipServer等等。
 它还为这些subserver设置了身份认证，通过调用ca.AuthorizeForwardedRoleAndOrg()验证client的身份，方法就是获取client的tls 证书，判断证书OU域是否为“swarm-manager” or “swarm-worker”？
 
@@ -57,7 +57,7 @@ manager包含的subserver：ControlServer，ResourceAllocatorServer，Dispatcher
 		return err
 	}
 
-###1.2 实例论证
+### 1.2 实例论证
 例如，dispatcher模块的client发送session()请求到server，请求为：
 
 	go func() {
