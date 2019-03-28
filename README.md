@@ -1,6 +1,6 @@
 #《docker 源码解析》
 -----
-##00  序
+## 00  序
 -----
 docker 是Linux OS虚拟化容器，原生环境是Linux 64位。具有快速开发、运维，以及部署的特点，它使SaaS层服务对系统和中间层的依赖性变弱，用户能够基于docker官方的基础镜像私人定制Dockerfile文件，搭建和配置特定服务，创建过程全都自动化实现。
 
@@ -8,7 +8,7 @@ docker 基于c/s模式，首先启动dockerd的服务端，并监听特定的uni
 
 本文就docker启动过程，Router路由表，Docker API等方面进行详细分析。
 
-##01 <i class="icon-list"></i> 目录
+## 01 <i class="icon-list"></i> 目录
 |章节|标题|
 |:-:|:-:|
 |   第一章  | [docker daemon 启动过程](https://github.com/TheBeeMan/docker-source-analysize/blob/master/charter%201.md)|
@@ -17,7 +17,7 @@ docker 基于c/s模式，首先启动dockerd的服务端，并监听特定的uni
 |   第四章  |[docker runc 执行过程](https://github.com/TheBeeMan/docker-source-analysize/blob/master/charter%204.md)|
 |   第五章  | |
 
-##02 <i class="icon-desktop"></i> 参考
+## 02 <i class="icon-desktop"></i> 参考
 
 - [ ] 《第一本Docker书》（James Turnbull 著）
 
