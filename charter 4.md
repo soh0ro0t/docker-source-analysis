@@ -155,12 +155,11 @@ NET命名空间绑定了特定的网络资源，包括 ... ...，不能获取其
 **2.2.6 USER Namespace:**
 
 USER命名空间使进程以特定的用户权限执行容器内进程，通过调用clone()添加"CLONE_NEWUSER"，再设置user-map，将容器内部用户和主机用户进行映射，从而控制执行容器内进程的UID和GID，使之行使很小的权限。值得注意的是，docker主要通过控制capabilities来限制容器内进程的权限，即使不设置user namespace，而是使用主机的root权限执行init进程仍然不会有太多安全问题，因为container启动时的capabilities进行了严格的控制，同时由于其他命名空间的配合，还设置了rootfs，很难发生穿透。除非发生穿透，使用“user namespace”能降低权限，否则用处确实不大。
-
-=======
+|name|parameter|description|
+|-|-|-|
 |  Network |  CLONE_NEWNET	|始于Linux 2.6.24 完成于 Linux 2.6.29|
 |  User	|CLONE_NEWUSER	|始于 Linux 2.6.23 完成于 Linux 3.8)|
 
->>>>>>> origin/master
 
 ## 03 参考
 - 容器运行时 	[opencontainers/runc](https://github.com/opencontainers/runc)
