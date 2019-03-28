@@ -1,10 +1,10 @@
 
-#chapter 1：docker daemon启动过程
+# chapter 1：docker daemon启动过程
 ------
 ##00 序
 **docker daemon** 的功能是创建守护进程，保障docker服务正常运行。由两部分逻辑组成：第一，创建docker运行环境并启动守护进程；第二，服务docker client，接收和处理请求。
 
-##01 目录
+## 01 目录
 
 |序号|标题|
 |:-:|:-:|
@@ -14,7 +14,7 @@
 |   第四节  | 创建Middlewares|
 |   第五节  | 创建Router|
 
-##02 内容
+## 02 内容
 #### 第一节 daemon 配置初始化
 这部分功能在main.init()函数中实现，作用是初始化docker daemon的参数列表，解析用户启动参数。
 
@@ -70,7 +70,7 @@ func NewDaemonCli() *DaemonCli {
 	if !stop {
 		err = daemonCli.start()
 ```
-####第二节 daemonCli.start()：创建daemon所需的其他服务
+#### 第二节 daemonCli.start()：创建daemon所需的其他服务
 
 **2.1** 创建daemon启动时的配置信息，通过合并用户的命令行参数和配置文件的参数实现，检查配置文件中的参数是否与命令行参数有重合，如有则退出，无则将两者融合成最终的配置参数。
 
@@ -106,7 +106,7 @@ func NewDaemonCli() *DaemonCli {
 		return err
 	}
 ```
-####第三节 daemon.Newdaemon()：创建核心守护进程
+#### 第三节 daemon.Newdaemon()：创建核心守护进程
 -------------------------------------------------------------------------------------
 **3.1** 设置MTU的值：setDefaultMtu()
     
@@ -207,7 +207,7 @@ func (cli *DaemonCli) initMiddlewares(s *apiserver.Server, cfg *apiserver.Config
 	}
 }
 ```
-####第五节  initRouter()：创建HTTP请求分发路由
+#### 第五节  initRouter()：创建HTTP请求分发路由
 
    router用于匹配事件的处理函数，并进行事件分发。那么初始化router就是创建事件与其处理函数的maps，包括container、images、volume、build、systemrouter等。由于docker是基于网络服务提供对外接口，c/s采用Http协议进行通信，下面枚举客户端请求与处理函数的记录，客户端请求的数据都会经过router处理后分发到相应的处理流程中去。
 ```c
