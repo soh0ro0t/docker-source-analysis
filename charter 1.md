@@ -1,7 +1,7 @@
 
 # chapter 1：docker daemon启动过程
 ------
-##00 序
+## 00 序
 **docker daemon** 的功能是创建守护进程，保障docker服务正常运行。由两部分逻辑组成：第一，创建docker运行环境并启动守护进程；第二，服务docker client，接收和处理请求。
 
 ## 01 目录
