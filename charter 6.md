@@ -101,7 +101,7 @@ manager中部分subserver的定义与之相关，说明这些server只是将raft
 	m.constraintEnforcer = orchestrator.NewConstraintEnforcer(s)
 	m.globalOrchestrator = orchestrator.NewGlobalOrchestrator(s)
 
-##02 实例分析
+## 02 实例分析
 
 这里AuthenticatedWrapperRaftServer和AuthenticatedWrapperRaftMembershipServer只使用了raftNode，未使用MemoryStore，说明这两个会真正操作到etcd/raft对象，首先不妨查看AuthenticatedWrapperRaftServer结构，所有相关代码如下：
 
